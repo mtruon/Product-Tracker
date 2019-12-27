@@ -2,7 +2,10 @@
 
 Product Tracker is a web application which provides users with relevant data to support their evaluation and purchasing decisions.
 
-# Specification, Dependencies, and Gems
+# Specification
 * Ruby 2.6.3
+* Rails 6.0.2.1
+
+# Gems
 * Open-uri
 * Nokogiri
