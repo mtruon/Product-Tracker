@@ -1,24 +1,8 @@
-# README
+# Product Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Product Tracker is a web application which provides users with relevant data to support their evaluation and purchasing decisions.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Specification, Dependencies, and Gems
+* Ruby 2.6.3
+* Open-uri
+* Nokogiri
