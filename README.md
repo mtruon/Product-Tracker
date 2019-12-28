@@ -9,3 +9,4 @@ Product Tracker is a web application which provides users with relevant data to 
 # Gems
 * Open-uri
 * Nokogiri
+* Bootstrap 4.4.1

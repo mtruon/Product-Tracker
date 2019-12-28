@@ -13,17 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono:300,400|Roboto');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 h1, h2, h3, ul, li {
   color: #333545;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace !important;
 }
 
 body {
   width: 100%;
-  font-family: 'Roboto Mono';
 }
 
 .container {
