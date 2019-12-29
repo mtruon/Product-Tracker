@@ -1,15 +1,15 @@
 <%= form_with model: @product, local: true do |form| %>
-  <p>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </p>
+  <div class="form-group">
+    <div class="row">
+      <div class="col col-md-2"><%= form.label :name %></div>
+      <div class="col"><%= form.text_field :name, class: "text" %></div>
+    </div>
 
-  <p>
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </p>
+    <div class="row">
+      <div class="col col-md-2"><%= form.label :url %></div>
+      <div class="col"><%= form.text_field :url %></div>
+    </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= form.submit type: "button", class: "btn btn-primary" %>
+  </div>
 <% end %>
