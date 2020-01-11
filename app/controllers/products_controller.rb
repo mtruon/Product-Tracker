@@ -25,7 +25,8 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     # Validation
-    if @product.save
+    if @product.valid?
+      @product.save
       redirect_to @product
     else
       render 'new'

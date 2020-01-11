@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
-  validates :name, prescence: true
-  validates :url, prescence: true
+  validates :name, :url, presence: true
+  validates :url, uniqueness: true
 end
