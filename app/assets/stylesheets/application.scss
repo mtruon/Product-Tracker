@@ -20,3 +20,6 @@ body {
   background-color: $root-colour;
 }
 
+.table-hover tbody tr:hover td {
+    background: rgba(0, 123, 255, 0.5);
+}
