@@ -10,3 +10,5 @@ Product Tracker is a web application which provides users with relevant data to 
 * Open-uri
 * Nokogiri
 * Bootstrap 4.4.1
+* Jquery-rails 4.3.5
+* Ruby-kafka

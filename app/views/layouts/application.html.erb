@@ -10,25 +10,23 @@
   </head>
 
   <body>
-    <header class="container">
-      <nav class="navbar navbar-default">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #333f65">
         <div class="container-fluid">
-          <div class="navbar-header">
-            <p>Product Tracker</p>
-          </div>
+          <a class="navbar-brand accent-text" href="<%= root_path %>">🚀 Fast Track</a>
           <ul class="nav navbar-nav navbar-right">
           </ul>
         </div>
       </nav>
     </header>
 
-    <section class="container-fluid" style="min-height: 100vh; height: 100%;">
+    <section class="container-fluid px-5 py-5" style="min-height: 100vh; height: 100%;">
       <%= yield %>
     </section>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <p>Michael Truong 2020</p>
+    <div class="container">
+      <div class="row">
+        <p class="accent-text">© 2020 Developed by  Michael Truong</p>
       </div>
     </div>
   </body>
