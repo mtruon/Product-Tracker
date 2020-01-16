@@ -5,6 +5,7 @@
     </div>
     <div class="col-md-auto"></div>
     <div class="col-md-auto">
+      <%# Button outputs a path to .../new? %>
       <%= button_to "+", {action: "new", type: "button"},
         {method: "get", class: "btn btn-dark", style: "background-color: #333f65"}  %>
     </div>
@@ -18,6 +19,7 @@
         <th scope="col">Low</th>
       </thead>
       <tbody>
+        <%# Product click does not work after returning to root  %>
         <% @products.each do |product| %>
           <tr data-link="<%= product_path(product) %>">  
             <td><%= product.name %></td>
