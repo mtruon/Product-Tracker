@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
   def domain_must_be_processable
     unless self.domain.downcase == "amazon" || self.domain.downcase == "hotels"
-      errors.add(:url, "not from Amazon or Hotels cannot be processed")
+      errors.add(:url, " cannot be processed")
     end
   end
 end
