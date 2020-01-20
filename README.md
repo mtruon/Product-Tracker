@@ -11,4 +11,13 @@ Product Tracker is a web application which provides users with relevant data to 
 * Nokogiri
 * Bootstrap 4.4.1
 * Jquery-rails 4.3.5
-* Ruby-kafka **TO BE USED**
+
+# Feature Planning
+## Kafka Implementation
+* Leverage ruby-kafka, deliveryboy, and racecar gem to build out data pipeline
+* Products are segregated by domains and into their respective topics
+* Products publish their information and is consumed by the app
+
+## ReactJS Implementation
+* A few front-end features would be better suited using ReactJS
+* Integrate ReactJS using webpack gem
