@@ -12,6 +12,9 @@ Product Tracker is a web application which provides users with relevant data to 
 * Bootstrap 4.4.1
 * Jquery-rails 4.3.5
 
+# TODO
+* Fix product table onClick refresh
+
 # Feature Planning
 ## Kafka Implementation
 * Leverage ruby-kafka, deliveryboy, and racecar gem to build out data pipeline

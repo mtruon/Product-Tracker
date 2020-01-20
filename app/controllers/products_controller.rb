@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-    p "Test"
     @product = Product.new
   end
 
@@ -44,6 +43,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+
+    redirect_to products_path
   end
 
   private
