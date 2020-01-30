@@ -11,6 +11,9 @@ Product Tracker is a web application which provides users with relevant data to 
 * Nokogiri
 * Bootstrap 4.4.1
 * Jquery-rails 4.3.5
+* karafka
+* delivery_boy
+* racercar
 
 # TODO
 * Fix product table onClick refresh

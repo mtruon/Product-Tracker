@@ -15,10 +15,13 @@ class Product < ApplicationRecord
 
   def current_price
     # TODO: Call the product scraper service to scrape the current price
-    if self.domain == "hotels"
-      return ProductScraper::HotelsScraper.new(self.url).scrape
-    else
-      return ProductScraper::AmazonScraper.new(self.url).scrape
+    begin
+      if self.domain == "hotels"
+        return "$#{ ProductScraper::HotelsScraper.new(self.url).scrape}"
+      else
+      end
+    rescue
+      return "$0.0"
     end
   end
 end
