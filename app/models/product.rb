@@ -12,4 +12,13 @@ class Product < ApplicationRecord
       errors.add(:url, " cannot be processed")
     end
   end
+
+  def current_price
+    # TODO: Call the product scraper service to scrape the current price
+    if self.domain == "hotels"
+      return ProductScraper::HotelsScraper.new(self.url).scrape
+    else
+      return ProductScraper::AmazonScraper.new(self.url).scrape
+    end
+  end
 end
