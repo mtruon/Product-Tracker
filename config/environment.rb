@@ -4,10 +4,11 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-# Initializing the product scraper with all tracked products in the database
+# Query the database for all Product records
 begin
-  p Product.all
-  aVar = "TESTING?"
+  products = Product.all
+  price_manager = PriceManager.new(products)
+  price_manager.scrape_hotel_prices()
 rescue
-  p "Didn't work"
+  p "Failed"
 end

@@ -33,9 +33,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jquery-rails'
 
 # Kafka, publisher-consumer gems 
-gem "karafka", git: "https://github.com/karafka/karafka.git", branch: "master"
-gem 'delivery_boy'
-gem 'racecar'
+gem 'waterdrop', git: "https://github.com/karafka/waterdrop.git", branch: "master"
+gem 'karafka', git: "https://github.com/karafka/karafka.git", branch: "master"
+#gem 'delivery_boy'
+#gem 'racecar'
 
 # HTML Scraper
 gem 'nokogiri'

@@ -21,7 +21,7 @@ class Product < ApplicationRecord
       else
       end
     rescue
-      return "$0.0"
+      return "$0.00"
     end
   end
 end

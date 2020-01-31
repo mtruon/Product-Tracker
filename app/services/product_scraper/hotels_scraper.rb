@@ -1,7 +1,12 @@
 module ProductScraper
   class HotelsScraper < Scraper
     def scrape
-      html_scrape_for(prices)
+      begin
+        create_doc()
+        html_scrape_for(prices)
+      rescue
+        puts "0.00"
+      end
     end
 
     private

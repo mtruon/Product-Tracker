@@ -3,37 +3,17 @@ require 'open-uri'
 
 module ProductScraper
   include Nokogiri
-  include OpenURI 
+  include OpenURI
 
-  class Scraper    
+  class Scraper
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
-    attr_reader :url
     attr_reader :products
+    attr_accessor :url
 
-    def url=(str)
-      @url = str
-
-      # Open a new document for scraping
-      begin
-        html = open(@url, "User-Agent" => USER_AGENT)
-      rescue OpenURI::HTTPError => error
-        response = error.io
-        return response
-      end
-      @doc = Nokogiri::HTML(html)
-    end
-
-    def initialize(url)
+    def initialize(url = "")
       @products = []
-      self.url = url
-    end
-
-    def addProduct(product)
-      p product.domain
-      @products.push(product)
-      @products.each do |prod|
-        p prod.name
-      end
+      @url = url
+      @doc = nil
     end
 
     private
@@ -46,6 +26,14 @@ module ProductScraper
         end
       end
 
+      def create_doc()
+        begin
+          html = open(@url, "User-Agent" => USER_AGENT)
+        rescue OpenURI::HTTPError => error
+          response = error.io
+          return response
+        end
+        @doc = Nokogiri::HTML(html)
+      end
   end
-
 end

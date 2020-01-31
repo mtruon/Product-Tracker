@@ -41,6 +41,13 @@ class KarafkaApp < Karafka::App
   # )
 
   consumer_groups.draw do
+    consumer_group :example do
+      batch_fetching false
+      
+      topic :products do
+        consumer ProductsConsumer
+      end
+    end
     # topic :example do
     #   consumer ExampleConsumer
     # end
