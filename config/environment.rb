@@ -10,5 +10,5 @@ begin
   price_manager = PriceManager.new(products)
   price_manager.scrape_hotel_prices()
 rescue
-  p "Failed"
+  p "[Error] Failed to initialize the Price Manager"
 end
