@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many :prices
   validates :name, presence: true
   validates :url, presence: true, uniqueness: true
   validate :domain_must_be_processable 
@@ -17,8 +18,9 @@ class Product < ApplicationRecord
     # TODO: Call the product scraper service to scrape the current price
     begin
       if self.domain == "hotels"
-        return "$#{ ProductScraper::HotelsScraper.new(self.url).scrape}"
-      else
+        return "$#{ProductScraper::HotelsScraper.new(self.url).scrape}"
+      elsif self.domain == "amazon"
+        return "$#{ProductScraper::AmazonScraper.new(self.url).scrape}"
       end
     rescue
       return "$0.00"
