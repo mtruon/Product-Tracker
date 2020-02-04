@@ -23,9 +23,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    # Validation
+    # Validate data and add to the price manager
     if @product.valid?
       @product.save
+      $price_manager.add_product(@product)
       redirect_to @product
     else
       render 'new'
