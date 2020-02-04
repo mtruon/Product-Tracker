@@ -22,7 +22,7 @@ module ProductScraper
           return 0.0
         else
           # Applies a regular expression for a price format dd.dd and converts it to a float
-          return prices.first.text[/\d+(\.)*\d+/].to_f
+          return prices.first.text[/\d+(\.)*\d+/].to_d
         end
       end
 

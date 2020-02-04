@@ -11,6 +11,10 @@ class PriceManager
     end
   end
 
+  def add_product(product)
+    @hotel_products.push(product)
+  end
+
   def add_products(products)
     for product in products do
       if product.domain == "hotels"

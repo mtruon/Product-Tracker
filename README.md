@@ -17,6 +17,7 @@ Product Tracker is a web application which provides users with relevant data to 
 
 # TODO
 * Fix product table onClick refresh
+* Consider 'SOLD OUT' use case
 
 # Feature Planning
 ## Kafka Implementation

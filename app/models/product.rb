@@ -15,15 +15,30 @@ class Product < ApplicationRecord
   end
 
   def current_price
-    # TODO: Call the product scraper service to scrape the current price
+    if prices.last.nil?
+      return "$0.00"
+    else
+      return "$#{prices.last.value}"
+    end
+  end
+
+  # TODO
+  def max_price
+  end
+
+  def low_price
+  end
+
+  def scrape_price
+    # Creates an instance of the appropriate html price scraper and retrieves an immediate price
     begin
       if self.domain == "hotels"
-        return "$#{ProductScraper::HotelsScraper.new(self.url).scrape}"
+        return ProductScraper::HotelsScraper.new(self.url).scrape
       elsif self.domain == "amazon"
-        return "$#{ProductScraper::AmazonScraper.new(self.url).scrape}"
+        return ProductScraper::AmazonScraper.new(self.url).scrape
       end
     rescue
-      return "$0.00"
+      return 0.00
     end
   end
 end

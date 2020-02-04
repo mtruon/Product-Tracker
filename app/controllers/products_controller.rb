@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
     # Validate data and add to the price manager
     if @product.valid?
       @product.save
+      create_prices(@product.id, @product.scrape_price, "CAD")
       $price_manager.add_product(@product)
       redirect_to @product
     else

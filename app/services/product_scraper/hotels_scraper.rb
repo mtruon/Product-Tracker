@@ -5,7 +5,7 @@ module ProductScraper
         create_doc()
         html_scrape_for(prices)
       rescue
-        puts "0.00"
+        return 0.00
       end
     end
 
