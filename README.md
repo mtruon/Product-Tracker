@@ -21,6 +21,7 @@ Product Tracker is a web application which provides users with relevant data to 
 # Feature Planning
 ## Kafka Implementation
 * Leverage ruby-kafka, deliveryboy, and racecar gem to build out data pipeline
+* Consider karafka gem
 * Products are segregated by domains and into their respective topics
 * Products publish their information and is consumed by the app
 * Current implementation of the ruby scraper is to be integrated into the application using a service object (in-design)
