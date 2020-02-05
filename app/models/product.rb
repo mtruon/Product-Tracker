@@ -16,17 +16,26 @@ class Product < ApplicationRecord
 
   def current_price
     if prices.last.nil?
-      return "$0.00"
+      return "-"
     else
       return "$#{prices.last.value}"
     end
   end
 
-  # TODO
   def max_price
+    if prices.max.nil?
+      return "-"
+    else
+      return "$#{prices.maximum(:value)}"
+    end
   end
 
-  def low_price
+  def min_price
+    if prices.min.nil?
+      return "-"
+    else
+      return "$#{prices.minimum(:value)}"
+    end
   end
 
   def scrape_price

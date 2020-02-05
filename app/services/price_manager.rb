@@ -28,10 +28,46 @@ class PriceManager
     end
   end
 
-  def scrape_hotel_prices()
-    for hotel in @hotel_products do
-      @hotel_scraper.url = hotel.url
-      p "$#{@hotel_scraper.scrape}"
+  def publish(products)
+    scraped_value = 0.00
+    for product in products do
+      if product.domain == "hotels"
+        scraped_value = scrape_hotel_using(product.url)
+        # Prices that have not changed are not saved 
+        if product.current_price != scraped_value
+          price = product.prices.create(value: scraped_value, currency: "CAD")
+          price.save
+        end
+      else
+        scraped_value = scrape_amazon_using(product.url)
+        # Prices that have not changed are not saved
+        if product.current_price != scraped_value
+          price = product.prices.create(value: scraped_value, currency: "CAD")
+          price.save
+        end
+      end
+      #$kafka_producer.produce(price.to_json, topic: "price", parition_key: product.id)
     end
   end
+
+  def scrape_hotel_prices()
+    for hotel in @hotel_products do
+      p "$#{scrape_hotel_using(hotel.url)}"
+    end
+  end
+
+  def test
+    p "Hello :-)"
+  end
+
+  private
+    def scrape_hotel_using(url)
+      @hotel_scraper.url = url
+      return @hotel_scraper.scrape
+    end  
+
+    def scrape_amazon_using(url)
+      @amazon_scraper.url = url
+      return @amazon_scraper.scrape
+    end
 end
