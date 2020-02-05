@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :prices
+  has_many :prices, dependent: :destroy
   validates :name, presence: true
   validates :url, presence: true, uniqueness: true
   validate :domain_must_be_processable 
