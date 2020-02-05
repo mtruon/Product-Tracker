@@ -30,3 +30,7 @@ Product Tracker is a web application which provides users with relevant data to 
 ## ReactJS Implementation
 * A few front-end features would be better suited using ReactJS
 * Integrate ReactJS using webpack gem
+
+## Improved UX
+* Add features such as notifications, popovers, etc. indicating that new relevant data has been received
+* Implement a graph of price points for historical analysis
