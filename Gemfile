@@ -32,11 +32,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # JQuery Gem
 gem 'jquery-rails'
 
-# Kafka, publisher-consumer gems 
-gem 'waterdrop', git: "https://github.com/karafka/waterdrop.git", branch: "master"
-gem 'karafka', git: "https://github.com/karafka/karafka.git", branch: "master"
-#gem 'delivery_boy'
-#gem 'racecar'
+# Whenever is used for scheduling cron jobs
+
+# Ruby-kafka is a client library for Apache Kafka
+# Racecar is a consumer framework for Kafka's pub-sub system
+gem 'ruby-kafka'
+gem 'racecar'
 
 # HTML Scraper
 gem 'nokogiri'

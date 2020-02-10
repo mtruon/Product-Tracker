@@ -5,9 +5,11 @@ class PriceManager
     @amazon_products = []
     if products.nil?
       @hotel_scraper = ProductScraper::HotelsScraper.new()
+      @amazon_scraper = ProductsScraper::AmazonScraper.new()
     else
       add_products(products)
       @hotel_scraper = ProductScraper::HotelsScraper.new(products)
+      @amazon_scraper = ProductScraper::AmazonScraper.new(products)
     end
   end
 
@@ -28,7 +30,15 @@ class PriceManager
     end
   end
 
-  def publish(products)
+  def publish_message
+    $kafka_producer.produce("HELLO!!", topic: "test_topic", partition_key: "hello?")
+  end
+
+  def publish(product)
+
+  end
+
+  def old_publish(products)
     scraped_value = 0.00
     for product in products do
       if product.domain == "hotels"
@@ -48,6 +58,14 @@ class PriceManager
       end
       #$kafka_producer.produce(price.to_json, topic: "price", parition_key: product.id)
     end
+  end
+
+  def publish_hotels
+    old_publish(@hotel_products)
+  end
+
+  def publish_amazon
+    old_publish(@amazon_products)
   end
 
   def scrape_hotel_prices()
