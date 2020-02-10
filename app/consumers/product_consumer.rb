@@ -1,7 +1,9 @@
 class ProductConsumer < Racecar::Consumer
-  subscribes_to "test_topic"
+  subscribes_to "products", start_from_beginning: false
 
   def process(message)
-    puts "Received message: #{message.value}"
+    product_id = JSON.parse(message.value)
+    product = Product.find(product_id)
+    puts "Received #{product}"
   end
 end

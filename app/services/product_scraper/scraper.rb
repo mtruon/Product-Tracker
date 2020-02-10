@@ -7,11 +7,9 @@ module ProductScraper
 
   class Scraper
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
-    attr_reader :products
     attr_accessor :url
 
     def initialize(url = "")
-      @products = []
       @url = url
       @doc = nil
     end

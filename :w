@@ -3,23 +3,18 @@ class PriceManager
 
   def initialize(products = nil)
     @hotel_scraper = ProductScraper::HotelsScraper.new()
-    @amazon_scraper = ProductScraper::AmazonScraper.new()
+    @amazon_scraper = ProductsScraper::AmazonScraper.new()
     @products = []
-    
-    unless products.nil?
+    if !products.nil?
       add_product(products)
     end
   end
 
   def add_products(products)
-    for product_id in products do
-      add_product(product_id)
-    end
-  end
-
-  def add_product(product_id)
-    unless products.include?(product_id)
-      @products.push(product_id)
+    for product in products do
+      if !products.include?(product_id)
+        products.push(product_id)
+      end
     end
   end
 

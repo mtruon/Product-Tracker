@@ -4,10 +4,11 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-# Query the database for all Product records
+# Initialize the price component
 begin
   products = Product.all
   $price_manager = PriceManager.new(products)
+  puts "[Prices] SUCCESS! Prices component successfully initialized"
 rescue
-  p "[Error] Failed to initialize the Price Manager"
+  puts "[Prices] ERROR!  Failed to initialize the Prices component"
 end
