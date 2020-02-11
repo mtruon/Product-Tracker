@@ -1,6 +1,9 @@
-# Product Tracker
+# Fast Track
 
-Product Tracker is a web application which provides users with relevant data to support their evaluation and purchasing decisions.
+Fast Track is a web application which provides users with relevant data to support their evaluation and purchasing decisions. This project is regarded as an exploratory initiative towards learning Kafka, Rails, and service oriented architecture.
+
+# Start up
+TBD
 
 # Specification
 * Ruby 2.6.3
@@ -11,12 +14,15 @@ Product Tracker is a web application which provides users with relevant data to 
 * Nokogiri
 * Bootstrap 4.4.1
 * Jquery-rails 4.3.5
+* Resque 1.27.0
+* Resque-scheduler
 * ruby-kafka -- Used as an Apache Kafka client library
 * racecar -- Used as a framework for consumers in the publisher-subscriber system
 
 # TODO
 * Fix product table onClick refresh
 * Consider 'SOLD OUT' use case
+* Fix the collection of prices >$1000
 
 # Feature Planning
 ## ReactJS Implementation
