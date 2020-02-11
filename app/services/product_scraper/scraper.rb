@@ -19,8 +19,9 @@ module ProductScraper
         if prices.first.nil?
           return 0.0
         else
-          # Applies a regular expression for a price format dd.dd and converts it to a float
-          return prices.first.text[/\d+(\.)*\d+/].to_d
+          # Applies a regular expression for a price format dd.dd and converts it to a decimal
+          price_text = prices.first.text
+          return price_text.delete(' ')[/\d+(\.)*\d+/].to_d
         end
       end
 

@@ -22,7 +22,6 @@ TBD
 # TODO
 * Fix product table onClick refresh
 * Consider 'SOLD OUT' use case
-* Fix the collection of prices >$1000
 
 # Feature Planning
 ## ReactJS Implementation
