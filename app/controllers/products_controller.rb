@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
       @product.save
       # Publish to Kafka products topic for price processing
       $kafka_producer.produce({"id":@product.id, "currency": "CAD"}.to_json, topic: "products", partition_key: "prod_test")
+      $kafka_producer.deliver_messages
       redirect_to @product
     else
       render 'new'

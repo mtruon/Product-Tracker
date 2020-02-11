@@ -8,7 +8,11 @@ class ProductConsumer < Racecar::Consumer
   end
 
   def process(message)
-    data = JSON.parse(message.value)
-    create_price_from(data["id"], data["currency"])
+    begin
+      data = JSON.parse(message.value)
+      create_price_from(data["id"], data["currency"])
+    rescue
+      puts "[ProductsConsumer] Failed to process a product"
+    end
   end
 end
