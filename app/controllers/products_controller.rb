@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
     if @product.valid?
       @product.save
       # Publish to Kafka products topic for price processing
-      $kafka_producer.produce({"id":@product.id, "currency": "CAD"}, topic: "products", partition_key: "prod_test")
+      $kafka_producer.produce({"id":@product.id, "currency": "CAD"}.to_json, topic: "products", partition_key: "prod_test")
       redirect_to @product
     else
       render 'new'
