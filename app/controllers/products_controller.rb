@@ -25,10 +25,8 @@ class ProductsController < ApplicationController
     # Validate data and add to the price manager
     if @product.valid?
       @product.save
-      # Instantiate's a price representing the first record for the associated product
-      create_prices(@product.id, @product.scrape_price, "CAD")
-      # Publish to Kafka products topic for reprocessing
-      $kafka_producer.produce(@product.id.to_json, topic: "products", partition_key: "prod_test")
+      # Publish to Kafka products topic for price processing
+      $kafka_producer.produce({"id":@product.id, "currency": "CAD"}, topic: "products", partition_key: "prod_test")
       redirect_to @product
     else
       render 'new'
