@@ -12,3 +12,6 @@ begin
 rescue
   puts "[Prices] ERROR!  Failed to initialize the Prices component"
 end
+
+# Run prices collection job
+Resque.enqueue(PricesCollectionJob)

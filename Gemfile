@@ -39,6 +39,12 @@ gem 'jquery-rails'
 gem 'ruby-kafka'
 gem 'racecar'
 
+# Resque and Resque-scheduler for queueing background calls to the pricing component
+gem 'resque', '~> 1.27.0'
+gem 'resque-web'
+gem 'resque-scheduler'
+gem 'resque-scheduler-web'
+
 # HTML Scraper
 gem 'nokogiri'
 

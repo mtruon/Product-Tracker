@@ -1,0 +1,11 @@
+defaults: &defaults
+host: localhost
+port: 3002
+development:
+<<: *defaults
+test:
+<<: *defaults
+staging:
+<<: *defaults
+production:
+<<: *defaults

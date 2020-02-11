@@ -7,29 +7,33 @@ class PriceManager
     @products = []
     
     unless products.nil?
-      add_product(products)
+      add_products(products)
     end
   end
 
   def add_products(products)
-    for product_id in products do
-      add_product(product_id)
+    for product in products do
+      add_product(product)
     end
   end
 
-  def add_product(product_id)
-    unless products.include?(product_id)
-      @products.push(product_id)
+  def add_product(product)
+    @products.push(product.id)
+  end
+
+  def get_prices
+    for id in @products
+      get_price(id, "CAD")
     end
   end
 
-  def get_price(product_id, currency)
+  def get_price(id, currency)
     scraped_price = 0.0
-    product = Product.find(product_id)
+    product = Product.find(id)
     if product.nil?
       return "Bad product ID"
     else
-      scraped_price = scrape(product.url)
+      scraped_price = scrape(product.domain, product.url)
       if product.current_price != scraped_price
         price = product.prices.create(value: scraped_price, currency: "CAD")
         price.save
@@ -37,10 +41,10 @@ class PriceManager
     end  
   end
 
-  def scrape(url)
-    if product.domain == "hotels"
+  def scrape(domain, url)
+    if domain == "hotels"
       return scrape_hotel_using(url)
-    elsif product.domain == "amazon"
+    elsif domain == "amazon"
       return scrape_amazon_using(url)
     else
       return "Bad product URL"

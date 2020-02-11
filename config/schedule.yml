@@ -1,0 +1,4 @@
+prices_collection_job:  
+  every: 10m 
+  class: PricesCollectionJob  
+  description: A job which requests updated prices from each product
