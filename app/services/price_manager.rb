@@ -36,7 +36,9 @@ class PriceManager
       scraped_price = scrape(product.domain, product.url)
       if product.current_price != scraped_price
         price = product.prices.create(value: scraped_price, currency: "CAD")
-        price.save
+        unless price.value == 0.0
+          price.save
+        end
       end
     end  
   end

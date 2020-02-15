@@ -4,7 +4,9 @@ class ProductConsumer < Racecar::Consumer
   def create_price_from(id, currency)
     product = Product.find(id)
     price = product.prices.create(value: product.scrape_price, currency: currency)
-    price.save
+    unless price.value == 0.0
+      price.save
+    end
   end
 
   def process(message)
