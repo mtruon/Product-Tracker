@@ -21,7 +21,7 @@
       <tbody>
         <%# Product click does not work after returning to root  %>
         <% @products.each do |product| %>
-          <tr data-link="<%= product_path(product) %>">  
+          <tr data-link="<%= product_path(product) %>">
             <td><%= product.name %></td>
             <td><%= product.current_price  %></td>
             <td><%= product.max_price %></td>
