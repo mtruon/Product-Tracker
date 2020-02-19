@@ -4,7 +4,7 @@ import ProductsContainer from './Products/ProductsContainer'
 class App extends Component {
     render() {
         return(
-          <ProductsContainer/>
+          <ProductsContainer products={this.props.products}/>
         );
     }
 }
