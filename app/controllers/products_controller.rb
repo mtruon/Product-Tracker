@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    @product_prices = {}
+    @products.each do |product|
+      @product_prices[product.id] = product_prices(product)
+    end
   end
 
   def show
@@ -49,8 +53,19 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def table
+    @products = Product.find(params[:id])
+  end
+
   private
     def product_params
       params.require(:product).permit(:name, :url, :notes)
+    end
+
+    def product_prices(product)
+      return {
+        "current" => product.current_price,
+        "max" => product.max_price,
+        "min" => product.min_price }
     end
 end

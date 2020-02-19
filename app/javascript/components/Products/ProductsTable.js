@@ -3,25 +3,26 @@ import React, { Component } from 'react'
 class ProductRow extends Component {
   render() {
     const product = this.props.product;
-    console.log(product);
+    const price = this.props.price;
+    // console.log(product);
     return(
-      <tr>
+      <tr onClick={(e) => this.props.handleSelect(e, product)} data-id={product.id}>
         <td>{product.name}</td>
-        <td>{product.current_price}</td>
-        <td></td>
-        <td></td>
+        <td>{price["current"]}</td>
+        <td>{price["max"]}</td>
+        <td>{price["min"]}</td>
       </tr>
     )
   }
 }
 
-class ProductTable extends Component {
+class ProductsTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
       products: props.products
     };
-    console.log(this.state.products);
+    // console.log(this.state.products);
   }
 
   render() {
@@ -30,7 +31,9 @@ class ProductTable extends Component {
       rows.push(
         <ProductRow
           product={product}
-          key={product.name} />
+          price={this.props.prices[product.id]}
+          key={product.name}
+          handleSelect={this.props.handleSelect}/>
       );
     });
 
@@ -54,4 +57,4 @@ class ProductTable extends Component {
   }
 }
 
-export default ProductTable;
+export default ProductsTable;
