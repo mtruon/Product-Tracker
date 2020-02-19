@@ -2,6 +2,8 @@
 
 Fast Track is a web application which provides users with relevant data to support their evaluation and purchasing decisions. This project is regarded as an exploratory initiative towards learning Kafka, Rails, and service oriented architecture.
 
+The front end is a combination of embedded ruby html and ReactJS
+
 # Start up
 TBD
 
@@ -13,14 +15,13 @@ TBD
 * Open-uri
 * Nokogiri
 * Bootstrap 4.4.1
-* Jquery-rails 4.3.5
+* react-rails
 * Resque 1.27.0
 * Resque-scheduler
 * ruby-kafka -- Used as an Apache Kafka client library
 * racecar -- Used as a framework for consumers in the publisher-subscriber system
 
 # TODO
-* Fix product table onClick refresh
 * Consider 'SOLD OUT' use case
 
 # Feature Planning
