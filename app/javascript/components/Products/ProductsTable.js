@@ -22,7 +22,6 @@ class ProductsTable extends Component {
     this.state = {
       products: props.products
     };
-    // console.log(this.state.products);
   }
 
   render() {

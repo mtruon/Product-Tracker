@@ -5,7 +5,11 @@ Fast Track is a web application which provides users with relevant data to suppo
 The front end is a combination of embedded ruby html and ReactJS
 
 # Start up
-TBD
+1. Start redis
+2. rails s
+3. Launch resque scheduler
+4. Launch resque workers
+5. Launch zookeeper, kafka
 
 # Specification
 * Ruby 2.6.3
