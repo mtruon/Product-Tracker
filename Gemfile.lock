@@ -143,11 +143,11 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.2)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     popper_js (1.16.0)
     public_suffix (4.0.3)
-    puma (4.3.1)
+    puma (4.3.3)
       nio4r (~> 2.0)
     raabro (1.1.6)
     racecar (1.0.1)
@@ -304,7 +304,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   nokogiri
-  puma (~> 4.1)
+  puma (~> 4.3)
   racecar
   rails (~> 6.0.1)
   react-rails
